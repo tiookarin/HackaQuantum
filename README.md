@@ -1,6 +1,12 @@
 Repositório de soluções # HackaQuantum
-Discente: João Victor Neves de Souza Nunes
-A maior parte dos algoritmos utilizados serão retirados do Guia "A Practical Guide to Quantum Machine Learning and Quantum Optimization  - Hands-on Approach to Modern Quantum Algorithms" da minha experiência na área de QML.
+Participante: João Victor Neves de Souza Nunes
+
+A maior parte dos algoritmos utilizados serão retirados do Guia:
+
+ "A Practical Guide to Quantum Machine Learning and Quantum Optimization  - Hands-on Approach to Modern Quantum Algorithms".
+
+E da minha experiência na área de QML.
+
 HackaQuantum - O HackaQuantum faz parte do II Simpósio da LACIQ, evento realizado para comemorar o Ano Internacional da Quântica (2025).
 
 Introdução:
@@ -12,15 +18,19 @@ Introdução:
 ## 📜 Sobre o Projeto
 Este é um framework experimental projetado para resolver problemas computacionais clássicos em robótica autônoma (Percepção e Sensoriamento, Planejamento e mapeamento, Controle e Dinâmica, Segurança e Sistemas) utilizando Quantum Machine Learning (QML). Focado na era NISQ (Noisy Intermediate-Scale Quantum) e além, este repositório implementa pipelines híbridos onde a CPU/GPU gerencia o pré-processamento e otimização, enquanto a QPU (Quantum Processing Unit) simulalda resolve tarefas de alta complexidade dimensional.
 
-Minha missão é converter problemas NP-difíceis de robótica (Path Planning, SLAM, Cinemática Inversa,Funcionais) em:
+Minha missão é converter problemas NP-difíceis de robótica (Path Planning, SLAM, Cinemática Inversa, Funcionais) em:
 
 Circuitos Variacionais (VQC) para controle e classificação.
-Quantum-Enhanced Bayesian Inference para Fusão de Sensores
-Quantum Kernels para percepção em ambientes ruidosos.
+
+Quantum-Enhanced Bayesian Inference para Fusão de Sensores Quantum Kernels para percepção em ambientes ruidosos.
+
 Recursive QAOA (R-QAOA) para otimização combinatória de trajetórias com Decomposição QUBO.
+
 Otimização de Alocação de Tarefas (MRTA) via QGNN.
 Aceleração de SLAM via VQLS.
 Planejamento de Movimento em Espaços Apertados via QBM.
+
+Outros Conceitos Chaves 
 Quantum Tensor Networks (QTN)
 Quantum Topological Data Analysis (QTDA)
 Quantum Random Walks (QRW)
@@ -85,14 +95,15 @@ A3 — Detecção de Evento de Escorregamento (Médio)
 
     Solução Quântica: Variational Quantum Classifier (VQC) [Capítulo 10].
 
-    Justificação (Baseada no PDF - Cap. 10): O problema de escorregamento é, fundamentalmente, uma classificação binária complexa ("Escorregou" vs. "Aderente"). O Capítulo 10 detalha o uso de VQC (ou QNN Classifiers) para aprender fronteiras de decisão não lineares com poucos dados de treinamento (vantagem em robótica onde dados de falha são escassos).
+    Justificação (Baseada no Guia - Cap. 10): O problema de escorregamento é, fundamentalmente, uma classificação binária complexa ("Escorregou" vs. "Aderente"). O Capítulo 10 detalha o uso de VQC (ou QNN Classifiers) para aprender fronteiras de decisão não lineares com poucos dados de treinamento (vantagem em robótica onde dados de falha são escassos).
 
     Mecanismo Técnico:
 
         PQC (Parametrized Quantum Circuit): Um circuito com portas de rotação ajustáveis (θ) e emaranhamento.
 
         Expressividade: A capacidade do circuito de gerar correlações quânticas permite detectar a assinatura "escondida" do escorregamento na correlação cruzada entre as rodas e a IMU, superando a sensibilidade de redes neurais clássicas pequenas.
-2. Planejamento & Mapeamento
+
+Trilha 2. Planejamento & Mapeamento
 
 Foco: Otimização Combinatória (NP-difícil) e Grafos.
 
@@ -102,7 +113,7 @@ B1 — Micro‑TSP para Inspeção de Waypoints (Médio)
 
     Solução Quântica: Quantum Approximate Optimization Algorithm (QAOA) [Capítulo 5] ou Grover Adaptive Search (GAS) [Capítulo 6].
 
-    Justificação (Baseada no PDF - Cap. 3, 5 e 6): O livro utiliza explicitamente o TSP como exemplo clássico para modelagem QUBO (Quadratic Unconstrained Binary Optimization) no Capítulo 3. O Capítulo 5 demonstra como resolver estas formulações usando QAOA, e o Capítulo 6 oferece o GAS como uma alternativa de busca para minimizar custos em espaços de solução estruturados.
+    Justificação (Baseada no Guia - Cap. 3, 5 e 6): O livro utiliza explicitamente o TSP como exemplo clássico para modelagem QUBO (Quadratic Unconstrained Binary Optimization) no Capítulo 3. O Capítulo 5 demonstra como resolver estas formulações usando QAOA, e o Capítulo 6 oferece o GAS como uma alternativa de busca para minimizar custos em espaços de solução estruturados.
 
     Mecanismo Técnico:
 
@@ -116,7 +127,7 @@ B3 — Seleção de Fechamentos de Loop via MWIS (Difícil)
 
     Solução Quântica: Otimização Variacional com Modelação Ising [Capítulo 3 & 5].
 
-    Justificação (Baseada no PDF - Cap. 3): O MWIS é um problema de grafos que mapeia diretamente para o Modelo de Ising (spins magnéticos). O livro ensina no Capítulo 3 a converter problemas de grafos em Hamiltonianos físicos, onde a solução de menor energia corresponde à seleção ótima de loops consistentes.
+    Justificação (Baseada no Guia - Cap. 3): O MWIS é um problema de grafos que mapeia diretamente para o Modelo de Ising (spins magnéticos). O livro ensina no Capítulo 3 a converter problemas de grafos em Hamiltonianos físicos, onde a solução de menor energia corresponde à seleção ótima de loops consistentes.
 
     Mecanismo Técnico:
 
@@ -134,7 +145,7 @@ C1 — IK (Cinemática Inversa) Sensível a Energia via Objetivo Variacional (M�
 
     Solução Quântica: Variational Quantum Eigensolver (VQE) como Otimizador [Capítulo 7].
 
-    Justificação (Baseada no PDF - Cap. 7): Embora o VQE seja famoso na química, o Capítulo 7 expande o seu uso para "problemas de otimização física geral". Podemos tratar a configuração do braço robótico como uma função de onda e a "energia mecânica + erro de posição" como o Hamiltoniano a ser minimizado.
+    Justificação (Baseada no Guia - Cap. 7): Embora o VQE seja famoso na química, o Capítulo 7 expande o seu uso para "problemas de otimização física geral". Podemos tratar a configuração do braço robótico como uma função de onda e a "energia mecânica + erro de posição" como o Hamiltoniano a ser minimizado.
 
     Mecanismo Técnico:
 
@@ -148,7 +159,7 @@ C3 — Atualização de Pose em Servo Visual (Difícil)
 
     Solução Quântica: Hybrid Quantum Neural Networks (Regressão) [Capítulo 11].
 
-    Justificação (Baseada no PDF - Cap. 11): Aqui aplica-se a estratégia híbrida "Transfer Learning" descrita no livro. Redes clássicas (CNNs) são insuperáveis no processamento inicial de imagens, mas a QNN brilha na tomada de decisão baseada nessas características.
+    Justificação (Baseada no Guia - Cap. 11): Aqui aplica-se a estratégia híbrida "Transfer Learning" descrita no livro. Redes clássicas (CNNs) são insuperáveis no processamento inicial de imagens, mas a QNN brilha na tomada de decisão baseada nessas características.
 
     Mecanismo Técnico:
 
@@ -162,17 +173,18 @@ Foco: Detecção de Anomalias e Generative AI.
 
 D1 — Detecção de Anomalias em Telemetria (Médio)
 
-    O Desafio Clássico: Identificar falhas (ciberataques ou defeitos mecânicos) em dados de telemetria complexos. Métodos estatísticos simples falham em capturar correlações subtis entre variáveis díspares (ex: temperatura da bateria vs. uso da CPU).
+    O Desafio Clássico: Identificar falhas (ciberataques ou defeitos mecânicos) em dados de telemetria complexos. Métodos estatísticos simples falham em capturar correlações sutis entre variáveis díspares (exemplo: temperatura da bateria vs. uso da CPU).
 
     Solução Quântica: Quantum Generative Adversarial Networks (QGAN) [Capítulo 12].
 
-    Justificação (Baseada no PDF - Cap. 12): O Capítulo 12 é inteiramente dedicado a QGANs. Ao contrário de um classificador que precisa de exemplos de falhas (que são raros), a QGAN aprende a gerar dados "normais" perfeitos.
+    Justificação (Baseada no Guia - Cap. 12): O Capítulo 12 é inteiramente dedicado a QGANs. Ao contrário de um classificador que precisa de exemplos de falhas (que são raros), a QGAN aprende a gerar dados "normais" perfeitos.
 
     Mecanismo Técnico:
 
         Aprendizagem da Distribuição: O Gerador Quântico aprende a distribuição de probabilidade da telemetria saudável.
 
         Detecção: Quando novos dados chegam, se o Discriminador (ou o próprio Gerador invertido) não conseguir reconhecê-los como parte da distribuição aprendida, é sinalizada uma anomalia. Isso é superior a métodos clássicos para detectar "black swan events" (eventos nunca antes vistos).
+
 ## 🧠 Módulos Principais
 1.  `/quantum_perception`: Classificadores QSVM e QNN para visão computacional e LIDAR.
 2.  `/quantum_navigation`: Implementações de QAOA para roteamento de múltiplos agentes.
